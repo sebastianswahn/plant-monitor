@@ -7,12 +7,10 @@ from machine import Pin, I2C
 from stemma_soil_sensor import StemmaSoilSensor
 import secrets
 
-# Initialize DHT11 sensor
 dht_sensor = dht.DHT11(machine.Pin(15))
 
-# Initialize I2C bus and Seesaw sensor
-SDA_PIN = 12 # update this
-SCL_PIN = 13 # update this
+SDA_PIN = 12 # update this or circuit your breadboard as declared in the readme file
+SCL_PIN = 13 # update this or circuit your breadboard as declared in the readme file
 
 i2c = machine.I2C(sda=machine.Pin(SDA_PIN), scl=machine.Pin(SCL_PIN), freq=400000)
 seesaw = StemmaSoilSensor(i2c)
@@ -66,7 +64,7 @@ def main():
             print(f'Soil Moisture: {moisture}')
 
         
-        time.sleep(60)  # Adjust the delay as needed
+        time.sleep(60)  # Adjust the delay to your preference
 
 if __name__ == '__main__':
     main()
